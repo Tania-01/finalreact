@@ -1,11 +1,11 @@
 import React from 'react';
-import { IMovie } from "../../../interfaces/movieInterfaces";
+import { IMovie } from "../../interfaces/movieInterfaces";
 import { Link } from "react-router-dom";
 
 interface IProps {
     movie: IMovie;
 }
-const Movieests: React.FC<IProps> = ({ movie }) => {
+ const Movie: React.FC<IProps> = ({ movie }) => {
     const { id, original_title, title, poster_path } = movie;
 
     return (
@@ -19,4 +19,4 @@ const Movieests: React.FC<IProps> = ({ movie }) => {
     );
 };
 
-export default Movieests;
+export default Movie;

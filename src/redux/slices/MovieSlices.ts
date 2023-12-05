@@ -11,7 +11,7 @@ interface IState {
 
 const initialState: IState = {
     movies: {
-        page: 2,
+        page: 1,
         results: [],
         total_pages: 0,
         total_results: 0,
@@ -48,6 +48,18 @@ const {data}=await movieServices.getById(id)
         }
     }
 );
+const getMovieBygenres=createAsyncThunk<IMovieEntries,number>(
+    'movieSlice/getMovieBygenres',
+    async(with_genres,{rejectWithValue})=>{
+        try {
+            const {data}=await movieServices.getBygenres(with_genres)
+            return data
+        }catch (e){
+            const err = e as AxiosError;
+            return rejectWithValue(err.response?.data);
+        }
+    }
+)
 
 const movieSlice = createSlice({
     name: 'MovieSlice',
@@ -61,6 +73,9 @@ const movieSlice = createSlice({
             .addCase(getMovieById.fulfilled, (state, action) => {
                 state.movies = action.payload;
             })
+            .addCase(getMovieBygenres.fulfilled,(state, action)=>{
+                state.movies=action.payload
+            })
 });
 
 
@@ -69,6 +84,7 @@ const MovieAction = {
     ...actions,
     getAll,
     getMovieById,
+    getMovieBygenres
 
 };
 export {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useAppDispatch, useAppSelectore } from '../../../hooks/reduxHooks';
-import { MovieAction } from '../../../redux/slices/MovieSlices';
-import { IMovie } from '../../../interfaces/movieInterfaces';
+import { useAppDispatch, useAppSelectore } from '../../hooks/reduxHooks';
+import { MovieAction } from '../../redux/slices/MovieSlices';
+import { IMovie } from '../../interfaces/movieInterfaces';
 import { useParams } from 'react-router-dom';
 
 const MovieInfo = () => {
