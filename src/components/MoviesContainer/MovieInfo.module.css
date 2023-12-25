@@ -1,0 +1,20 @@
+
+.image{
+    height: 350px;
+    width: 250px;
+}
+.main{
+    display: flex;
+   flex-direction: row;
+}
+.title{
+    font-family: "Book Antiqua",sans-serif;
+    width: 700px;
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+.main_title{
+    margin-left: 150px;
+}

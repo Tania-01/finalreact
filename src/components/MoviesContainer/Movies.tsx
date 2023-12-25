@@ -4,7 +4,7 @@ import { MovieAction } from '../../redux/slices/MovieSlices';
 import { useSearchParams} from 'react-router-dom';
 
 import Movie from './Moviests'
-
+import style from "./Movie.module.css"
 const Movies = () => {
     const{movies}=useAppSelectore(state => state.movie)
     const dispatch=useAppDispatch()
@@ -19,7 +19,7 @@ const Movies = () => {
 
 
     return (
-        <div>
+        <div className={style.title}>
             {movies.results.map(movie=><Movie key={movie.id} movie={movie}/>)}
 
         </div>

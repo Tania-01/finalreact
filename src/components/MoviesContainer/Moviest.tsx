@@ -2,8 +2,10 @@ import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelectore} from "../../hooks/reduxHooks";
 import {movieServices} from "../../services/movieServices";
 import {MovieAction} from "../../redux/slices/MovieSlices";
-import Movie from "./Moviests";
 import {useSearchParams} from "react-router-dom";
+
+import Movie from "./Moviests";
+import style from "./Movie.module.css"
 
 export const Moviest = () => {
 
@@ -29,15 +31,21 @@ const with_genres=Number(query.get('with_genres')) || 1;
         const prevPageNumber = Math.max(pages - 1, 1).toString(); // Конвертуємо в рядок
         setQuery({ page: prevPageNumber });
     }
-    console.log(movies)
+
 
     return (
         <div>
-             {movies.results.map(movie=><Movie key={movie.id} movie={movie}/>)}
-    <button onClick={nextPage}>Next</button>
-         <button onClick={prevPage}>prev</button>
+            <div className={style.title}>
+                {movies.results.map(movie => <Movie key={movie.id} movie={movie}/>)}
+
+            </div>
+            <div className={style.buton}>
+                <button onClick={prevPage}>Prev</button>
+                <button onClick={nextPage}>Next</button>
+
+            </div>
         </div>
-);
+    );
 };
 
     export default Moviest;

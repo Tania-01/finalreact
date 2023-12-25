@@ -1,7 +1,7 @@
 import React from 'react';
 import {Genre} from "../../interfaces/GenreInterfaces";
 import {useNavigate} from "react-router-dom";
-import './Genre.css'
+
 import style from './genre.module.css'
 interface IProps {
     genre:Genre

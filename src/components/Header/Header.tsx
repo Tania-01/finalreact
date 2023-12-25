@@ -4,8 +4,8 @@ import style from './Header.module.css'
 const Header = () => {
     return (
         <div className={style.header}>
-            <NavLink to={'movie'}>Movie</NavLink>
-            <NavLink to={'genre'}>Genre</NavLink>
+            <NavLink className={style.text} to={'movie'}>Movie</NavLink>
+            <NavLink className={style.text} to={'genre'}>Genre</NavLink>
         </div>
     );
 };
